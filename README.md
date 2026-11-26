@@ -1,2 +1,1 @@
-Barhana Rossi Alfian T1D
-Khulud 
+KHULUD CINTA FIRRAS
