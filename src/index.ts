@@ -154,7 +154,7 @@ function tampilkanRingkasan(data: Peminjaman[]): void {
 function tampilkanFiturBelumTersedia(namaFitur: string, progressKe: number): void {
   console.log(`\n[INFO] Fitur ${namaFitur} akan diimplementasikan pada Progress ${progressKe}.`);}
 
-  // ============================================================
+ // ============================================================
 // BLOK 3 - MENU UTAMA (PERULANGAN SAMPAI PENGGUNA MEMILIH KELUAR)
 // ============================================================
 
