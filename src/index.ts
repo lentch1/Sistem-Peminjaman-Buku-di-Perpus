@@ -209,5 +209,5 @@ async function main(): Promise<void> {
   rl.close(); // tutup antarmuka input setelah perulangan selesai
 }
 
-// Menjalankan program utama
+// Menjalankan program fitur utama
 main();
