@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": { "start": "ts-node src/index.ts", "build": "tsc" },
-    
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lentch1/tugas-UAS.git"
@@ -18,7 +20,7 @@
   },
   "homepage": "https://github.com/lentch1/tugas-UAS#readme",
   "devDependencies": {
-    "@types/node": "^26.6.6",
+    "@types/node": "^26.6.11",
     "ts-node": "^10.9.2",
     "typescript": "^7.0.2"
   }
