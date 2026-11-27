@@ -153,3 +153,61 @@ function tampilkanRingkasan(data: Peminjaman[]): void {
 // Fungsi (ada parameter + void): pesan sementara untuk fitur yang belum dibuat
 function tampilkanFiturBelumTersedia(namaFitur: string, progressKe: number): void {
   console.log(`\n[INFO] Fitur ${namaFitur} akan diimplementasikan pada Progress ${progressKe}.`);}
+
+  // ============================================================
+// BLOK 3 - MENU UTAMA (PERULANGAN SAMPAI PENGGUNA MEMILIH KELUAR)
+// ============================================================
+
+async function main(): Promise<void> {
+  // Membuat antarmuka untuk membaca input dari keyboard
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+  let berjalan: boolean = true; // penanda perulangan menu; false = keluar program
+
+  // Perulangan while: menu tampil terus sampai pengguna memilih 0 (Keluar)
+  while (berjalan) {
+    tampilkanRingkasan(daftarPeminjaman); // tampilkan ringkasan data
+    tampilkanMenu();                      // tampilkan daftar menu
+
+    const input: string = await rl.question("Pilih menu (0-5): "); // baca pilihan
+
+    // Jika input tidak valid, tampilkan pesan lalu ulangi menu (tanpa menghentikan program)
+    if (!validasiPilihan(input)) {
+      console.log("\n[ERROR] Pilihan tidak valid! Masukkan angka 0 sampai 5.");
+      continue; // lompat ke awal perulangan
+    }
+
+    const pilihan: number = Number(input); // ubah teks pilihan menjadi angka
+
+    // Percabangan switch untuk menentukan fitur yang dijalankan
+    switch (pilihan) {
+      case 1:
+        tampilkanFiturBelumTersedia("Tambah Data (Create)", 3);
+        break;
+      case 2:
+        tampilkanFiturBelumTersedia("Lihat Data (Read)", 4);
+        break;
+      case 3:
+        tampilkanFiturBelumTersedia("Ubah Data (Update)", 5);
+        break;
+      case 4:
+        tampilkanFiturBelumTersedia("Hapus Data (Delete)", 5);
+        break;
+      case 5:
+        tampilkanFiturBelumTersedia("Cari Data (Search)", 6);
+        break;
+      case 0:
+        berjalan = false; // hentikan perulangan menu
+        console.log("\nTerima kasih telah menggunakan aplikasi. Sampai jumpa!");
+        break;
+      default:
+        // Cadangan: seharusnya tidak tercapai karena sudah divalidasi
+        console.log("\n[ERROR] Menu tidak dikenali.");
+    }
+  }
+
+  rl.close(); // tutup antarmuka input setelah perulangan selesai
+}
+
+// Menjalankan program utama
+main();
