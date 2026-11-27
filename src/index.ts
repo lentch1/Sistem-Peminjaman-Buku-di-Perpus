@@ -211,3 +211,4 @@ async function main(): Promise<void> {
 
 // Menjalankan program fitur utama
 main();
+console .log("\n[INFO] Program selesai.");
